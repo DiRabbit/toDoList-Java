@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Random;
+
 public class Quest {
     private String nome;
     private boolean concluida;
@@ -33,8 +35,9 @@ public class Quest {
     }
 
     public void gerarId() {
-        double randomNumber = Math.random() * 5;
-        int id = (int)randomNumber;
+        Random rand = new Random();
+        int upperbound = 50;
+        id = rand.nextInt(upperbound);
     }
 
 }
