@@ -1,24 +1,28 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Quest {
-    private String nome;
+    private List<String> nome;
     private boolean concluida;
     private int id;
 
-    public Quest(String nome) {
-        setNome(nome);
+    public Quest() {}
+
+    public Quest(List<String> nome) {
+        this.nome = nome;
         setConcluida(false);
         gerarId();
     }
 
-    public String getNome() {
+    public List<String> getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public boolean isConcluida() {
+        return concluida;
     }
 
     public void setConcluida(boolean concluida) {
@@ -40,4 +44,11 @@ public class Quest {
         id = rand.nextInt(upperbound);
     }
 
+    @Override
+    public String toString() {
+        return "Quest: " +
+                "nome= " + nome +
+                ", concluida= " + concluida +
+                ", id= " + id ;
+    }
 }

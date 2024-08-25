@@ -2,6 +2,8 @@ package application;
 
 import entities.Quest;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,29 +11,20 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
+        List<String> nome;
+        nome = new ArrayList<>();
+
         System.out.println("***Bem Vindo ao To-Do-List***");
 
-        int n = sc.nextInt();
+        System.out.print("Digite o nome da tarefa: ");
+        String name = sc.nextLine();
+        nome.add(name);
 
-        criarQuest(n);
+        Quest quest = new Quest(nome);
 
-        System.out.println("***Até a próxima***");
+        System.out.println(quest);
 
-        sc.close();
-    }
-
-    public static void criarQuest(int n){
-        Scanner sc = new Scanner(System.in);
-
-        Quest[] quest = new Quest[n];
-
-        for (int i = 0; i <= quest.length-1; i++) {
-            String nomeDoProduto = sc.nextLine();
-            quest[i] = new Quest(nomeDoProduto);
-            System.out.println("A tarefa " + quest[i].getNome() + " cujo o id é: " + quest[i].getId() + " foi criada com sucesso!");
-        }
 
         sc.close();
     }
-
 }
